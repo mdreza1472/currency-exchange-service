@@ -29,6 +29,14 @@ spec:
       - image: mdreza1472/mmv2-currency-exchange-service-kubernetes:0.0.12-SNAPSHOT
         imagePullPolicy: IfNotPresent
         name: mmv2-currency-exchange-service-kubernetes
+        readinessProbe: 
+         httpGet: 
+          port: 8000
+          path: /actuator/health/readiness
+#        livenessProbe: 
+#         httpGet: 
+#          port: 8000
+#          path: /actuator/health/liveness
         resources:
           limits:
             cpu: 500m
